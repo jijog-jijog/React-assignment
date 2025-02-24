@@ -1,21 +1,26 @@
 import { useState } from 'react'
 import './App.css'
-import T
+import to_do from './to_do'
 
-function App() {
-  const [count, setCount] = useState({Name:"Jijo",Age:20})
-  const Change = () =>{
-    setCount((precount) => ({...precount, Name: "Jebi"}))
- }
+const App = () => {
+  const [count, setCount] = useState(['Jijo','Majo','lajo'])
+  const change = () => {
+    setCount((precount) => ([...precount, "libin"]))
+  }
 
- return (
+  return (
     <>
-    <h1>Name={count.Name}</h1>
-    <h1>Age={count.Age}</h1>
-    <button onClick={Change}>Change Name</button>
-    <ToDo />
+      <h1>Jijo</h1>
+      <ul>
+        {count.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+        <button onClick={change}>Add</button>
+      </ul>
+      <to_do/>
     </>
   )
 }
+
 
 export default App
